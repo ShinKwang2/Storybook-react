@@ -18,6 +18,11 @@ const Container = styled.button`
   }
 `;
 
-export default function Button() {
-  return <Container>Button</Container>;
+type ButtonProps = {
+  readonly label: string;
+  readonly onClick?: () => void;
+};
+
+export default function Button({ label, onClick }: ButtonProps) {
+  return <Container onClick={onClick}>{label}</Container>;
 }
