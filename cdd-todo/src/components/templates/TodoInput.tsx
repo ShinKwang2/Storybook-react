@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Button from '../atoms/Button';
 import PageTitle from '../atoms/PageTitle';
 import InputTodo from '../organisms/InputTodo';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   height: 100dvh;
@@ -31,6 +32,8 @@ const ButtonContainer = styled.div`
 `;
 
 export default function TodoInput() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Contents>
@@ -38,7 +41,7 @@ export default function TodoInput() {
         <InputTodo />
       </Contents>
       <ButtonContainer>
-        <Button label="닫기" />
+        <Button label="닫기" onClick={() => navigate('/')} />
       </ButtonContainer>
     </Container>
   );
