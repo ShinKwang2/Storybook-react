@@ -36,6 +36,8 @@ export const TodoListContextProvider = ({ children }: PropsWithChildren) => {
     });
   };
 
+  console.log(todoList);
+
   return (
     <TodoListContext.Provider value={{ todoList, onAdd, onDelete }}>
       {children}

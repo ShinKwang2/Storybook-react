@@ -3,6 +3,7 @@ import Button from '../atoms/Button';
 import Input from '../atoms/Input';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import { useTodoList } from '@/contexts/TodoList-context';
 
 const Container = styled.div`
   display: flex;
@@ -12,9 +13,13 @@ const Container = styled.div`
 
 export default function InputTodo() {
   const [todo, setTodo] = useState('');
+  const { onAdd } = useTodoList();
   const navigate = useNavigate();
 
-  const onAdd = () => {
+  const onAddTodo = () => {
+    if (todo === '') return;
+
+    onAdd(todo);
     setTodo('');
     navigate('/');
   };
@@ -22,7 +27,7 @@ export default function InputTodo() {
   return (
     <Container>
       <Input value={todo} onChange={setTodo} />
-      <Button label="추가" color="#304FFE" onClick={onAdd} />
+      <Button label="추가" color="#304FFE" onClick={onAddTodo} />
     </Container>
   );
 }
