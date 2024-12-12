@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -11,9 +12,11 @@ const Container = styled.div`
 
 export default function InputTodo() {
   const [todo, setTodo] = useState('');
+  const navigate = useNavigate();
 
   const onAdd = () => {
     setTodo('');
+    navigate('/');
   };
 
   return (
