@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 type ContainerProps = {
   readonly color: string;
 };
-type BUttonProps = {
+type ButtonProps = {
   readonly label: string;
   readonly color?: string;
   readonly onClick?: () => void;
@@ -27,7 +27,7 @@ const Container = styled.button<ContainerProps>`
   }
 `;
 
-export default function Button({ label, color = '#ff5722', onClick }: BUttonProps) {
+export default function Button({ label, color = '#ff5722', onClick }: ButtonProps) {
   return (
     <Container color={color} onClick={onClick}>
       {label}
