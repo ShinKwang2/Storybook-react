@@ -1,7 +1,8 @@
 import TodoList from '@/components/templates/TodoList';
+import { useTodoList } from '@/contexts/TodoList-context';
 
 export default function TodoListPage() {
-  const todoList = ['리액트 공부하기', 'CDD 공부하기', '할 일 목록앱 만들기'];
+  const { todoList, onDelete } = useTodoList();
 
-  return <TodoList todoList={todoList} />;
+  return <TodoList todoList={todoList} onDelete={onDelete} />;
 }
